@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport({
     pass: "Samyu17!",
   },
 });
-
 const storage = multer.diskStorage({
   destination: "./public/upload/",
   filename: function (req, file, cb) {
