@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
+let port = process.env.PORT;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -359,6 +360,10 @@ app.post("/uniquePackage", (req, res) => {
 
 // Listening port *************************************************
 
-app.listen(3000, function () {
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(3000 || port, function () {
   console.log("server has started on port 3000");
 });
