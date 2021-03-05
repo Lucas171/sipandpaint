@@ -1,0 +1,280 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.bckgrndImage {
+  background-image: url("../images/backgroundImage.jpg");
+  background-size: cover;
+  background-position: 90% 50%;
+  padding: 20px;
+  height: 80vh;
+}
+
+section.typeOfEvents {
+  margin-top: -100px;
+}
+
+section.callToAction {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  margin-top: 90px;
+}
+
+section.callToAction a {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #fff;
+  text-decoration: none;
+  color: black;
+}
+
+div.middleLogo {
+  text-align: center;
+}
+
+div.middleLogo img {
+  width: 100px;
+  margin: 30px 0;
+}
+
+.eventTypeCard,
+.packageCard {
+  text-align: center;
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 15px;
+  position: relative;
+}
+
+div.es {
+  text-align: center;
+  width: 220px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 15px;
+  position: relative;
+}
+
+.packageCard {
+  padding: 20px 0;
+  width: 220px;
+  height: 350px;
+}
+
+.packageCard img {
+  width: 200px;
+  height: 150px;
+}
+
+.eventTypeCard img {
+  padding: 20px;
+  z-index: -1;
+}
+
+div.es img {
+  width: 150;
+  height: 150px;
+}
+
+div.es h3 {
+  font-size: 22px;
+}
+
+div.es p {
+  font-size: 12px;
+  color: rgb(66, 66, 66);
+}
+
+.packages,
+.upcomingEvents {
+  text-align: center;
+}
+
+.upcomingEvents h1 {
+  margin: 80px auto 0;
+}
+
+.underUpcoming {
+  margin: 10px auto 30px;
+  width: 400px;
+}
+
+.upcomingEvents {
+  margin-bottom: 40px;
+}
+
+p.packagePrice {
+  background-color: white;
+  border-radius: 5px;
+  margin: -50px auto 20px;
+  z-index: 3;
+  width: 100px;
+  padding: 10px;
+
+  position: absolute;
+  top: 200px;
+  left: 29%;
+}
+
+.packageCard h3 {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+a.bookButton {
+  text-decoration: none;
+  color: grey;
+  background-color: lightgrey;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
+a.lower {
+  margin-top: -10px;
+}
+
+a.requestPackage {
+  background-color: black;
+  width: 80%;
+  display: block;
+  margin: 30px auto -20px;
+  color: #7bceab;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.stayInTouch {
+  background-color: #7bceab;
+  width: 350px;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.stayInTouch img.moe {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.stayInTouch h1 {
+  width: 70%;
+  margin: auto;
+}
+
+.stayInTouch img.moeAccent {
+  position: absolute;
+  z-index: -1;
+  top: 57px;
+  right: 12px;
+  overflow: hidden;
+}
+
+div.emailUs a {
+  color: #7bceab;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time  "] {
+  padding: 15px 15px 18px;
+  margin: 0;
+  border: 1px solid white;
+  width: 50%;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+  outline: none;
+}
+
+input#newsletterEmail {
+  padding: 14px 15px 17px;
+  margin: 0;
+  border: 1px solid white;
+  width: 50%;
+}
+
+img.envelope {
+  border: 1px solid white;
+  background-color: #fff;
+  margin: 0;
+  padding: 21px 20px 19px;
+  border-radius: 10px 0 0 10px;
+  color: lightgray;
+}
+
+img.paperPlane {
+  border: none;
+  padding: 10px;
+  background-color: #60a588;
+  border-radius: 10px;
+}
+
+div.paperPlaneContainer {
+  display: inline;
+  background-color: #fff;
+  padding: 18px;
+  padding-bottom: 21px;
+  margin: 0;
+  margin-left: -10px;
+  border-radius: 0 10px 10px 0;
+}
+
+p.packagePrice {
+  color: red;
+}
+
+footer {
+  background-color: #7bceab;
+  margin-top: 40px;
+  border-radius: 40px 40px 0 0;
+  text-align: center;
+}
+
+div.packageCard h3,
+div.upcomingEvents h3 {
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 992px) {
+  .stayInTouch {
+    width: 850px;
+  }
+
+  .stayInTouch img.moeAccent {
+    position: absolute;
+    z-index: -1;
+    top: 30px;
+    right: 520px;
+    overflow: hidden;
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  div.emailUs a {
+    padding: 10px;
+  }
+}

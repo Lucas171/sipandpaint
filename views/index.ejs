@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('header'); -%>
+
+  <script src="index.js"></script>
+
+  <title>SIP & Paint</title>
+</head>
+
+<body>
+  <%- include('navigation'); -%>
+
+
+  <section class="bckgrndImage">
+    <main>
+      <section class="callToAction">
+        <h1>Sip & Paint. Ng</h1>
+        <p>is simply having a great time with loved ones! It's a relaxing and stress free craft that seems to make like
+          feel a little simpler! It's feeling the endless flow of Wine and creating a Masterpiece suitable for framing!
+          In Short - it's a Reward!</p>
+        <a href="https://my.setmore.com/bookingpage/2009f744-aca7-48cd-ad0f-425bf943adf9?instant_experiences_enabled=true"
+          target="_blank">
+          Book An Event</a>
+      </section>
+    </main>
+  </section>
+
+
+
+  <section class="typeOfEvents container">
+    <div class="row eventTypes">
+      <div class="eventTypeCard col-md-6 col-lg-3 col-xl-2 es">
+        <img src="images/bride.jpg" alt="">
+        <h3>Bridal Shower</h3>
+        <p>Bring in your bride tribe and celebrate before you tie the knott.</p>
+      </div>
+      <div class="eventTypeCard col-md-6 col-lg-3 col-xl-2 es">
+        <img src="images/birthday.jpg" alt="">
+        <h3>Birthday</h3>
+        <p>Come celebrate your birthday with us as you celebrate another year of life.</p>
+      </div>
+      <div class="eventTypeCard col-md-6 col-lg-3 col-xl-2 es">
+        <img src="images/date.jpg" alt="" width="200px" height="200px">
+        <h3>Date Night</h3>
+        <p>Bring in your date and have a fun and romantic night with them.</p>
+      </div>
+      <div class="eventTypeCard col-md-6 col-lg-3 col-xl-2 es">
+        <img src="images/private.jpg" alt="">
+        <h3>Private Events</h3>
+        <p>No matter the occasion, we are the place to have a good time.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="middleLogo">
+    <img src="images/logo.svg" alt="">
+  </div>
+
+  <section class="packages container">
+    <div class="row">
+      <h1> Packages</h1>
+      <p>If you don’t see one that fit’s what you’re looking for, let us know and we can try our best to make a unique
+        package just for you!</p>
+      <% for (let i=0; i<packagesList.length; i++){ %>
+      <div class="packageCard col-3">
+        <img src="upload/image-<%=packagesList[i].image%>" alt="" width="250px" height="150px">
+        <p class="packagePrice">&#8358; <%=packagesList[i].price%></p>
+        <h3><%=packagesList[i].name%></h3>
+        <p class="duration"><%=packagesList[i].duration%> <%=packagesList[i].timeFrame%></p>
+        <a href=https://my.setmore.com/bookingpage/2009f744-aca7-48cd-ad0f-425bf943adf9?instant_experiences_enabled=true"
+          class="bookButton" target="_blank">Book Now</a>
+      </div>
+      <% } %>
+    </div>
+    <a href="request" class="requestPackage">Click To Request A Unique Package</a>
+  </section>
+
+
+  <section class="upcomingEvents container" id="upcoming">
+    <h1>Upcoming Events</h1>
+    <p class="underUpcoming">These are the events that are coming up and we would love for you to join us! So mark your
+      calendars!</p>
+    <div class="row">
+      <% for (let i=0; i<upcomingEventList.length; i++){ %>
+      <div class="packageCard col-3">
+        <img src="upload/image-<%=upcomingEventList[i].image%>" alt="" width="250px" height="150px">
+        <p class="packagePrice">&#8358; <%=upcomingEventList[i].price%></p>
+        <h3><%=upcomingEventList[i].name%></h3>
+        <p class="date"><%=upcomingEventList[i].date%></p>
+        <p class="duration"><%=upcomingEventList[i].duration%> <%=upcomingEventList[i].timeFrame%></p>
+
+        <a href=https://my.setmore.com/bookingpage/2009f744-aca7-48cd-ad0f-425bf943adf9?instant_experiences_enabled=true"
+          target="_blank" class="bookButton lower">Book Now</a>
+      </div>
+      <% } %>
+    </div>
+
+  </section>
+
+  <div class="container">
+    <section class="stayInTouch">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <img src="images/manOnEvelope.svg" alt="" class="moe">
+        </div>
+        <div class="description col-lg-6 col-sm-12">
+          <h1>Let's Stay In Touch</h1>
+          <p>If you want to know about upcoming events, please email us letting us know that you want to be notified,
+            and we will add you to our list!
+          </p>
+          <div class="emailUs">
+            <a href="mailto:sipandpaint.ng@gmail.com">Email Us</a>
+          </div>
+        </div>
+        <img src="images/stayInTouchAccent.svg" alt="" class="moeAccent">
+      </div>
+    </section>
+  </div>
+  <div class="blank">
+
+  </div>
+  <footer>
+    <div class="bottomLogo">
+      <img src="" alt="">
+      <p>Copyright &copy; 2021 Sip & Paint. NG All Rights Reserved</p>
+    </div>
+    <div class="contactInfo">
+      <p>Contact Us</p>
+      <p><img src="" alt=""> Phone: +234 904 000 0081</p>
+      <p><img src="" alt=""> <a href="mailto:sipandpaint.ng@gmail.com">sipandpaint.ng@gmail.com</a> </p>
+      <img src="" alt="">
+      <img src="" alt="">
+    </div>
+  </footer>
+</body>
+
+</html>

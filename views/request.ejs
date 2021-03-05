@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('header'); -%>
+
+  <title>Request A Package</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="images/logo.svg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/#upcoming">Upcoming Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/request" target="_blank">Request An Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+              href="https://my.setmore.com/bookingpage/2009f744-aca7-48cd-ad0f-425bf943adf9?instant_experiences_enabled=true"
+              target="_blank">Book An Event</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="uniquePackageInf container text-center mt-3">
+    <h3>Please fill out the following information, so that we can get a better understanding of your request!</h3>
+  </div>
+  <form action="/uniquePackage" method="post" class="container">
+
+
+    <div class="form-group mt-3">
+      <label for="exampleFormControlInput1">What date would you like to have this experience?</label>
+      <input type="text" class="form-control w-100" id="exampleFormControlInput1" placeholder="DD/MM/YYYY" name="date"
+        required>
+    </div>
+    <div class="form-group mt-3">
+      <label for="exampleFormControlInput1">What time would you like to have this experience?</label>
+      <input type="time" class="form-control w-100" id="exampleFormControlInput1" name="time" required>
+    </div>
+    <div class="form-group mt-3">
+      <label for="exampleFormControlInput1">How many people will be at this experience?</label>
+      <input type="number" class="form-control w-100" id="exampleFormControlInput1" name="people" required>
+    </div>
+    <div class="form-group mt-3">
+      <label for="exampleFormControlInput1">What is your budget? (&#8358;)</label>
+      <input type="number" class="form-control w-100" id="exampleFormControlInput1" name="budget" required>
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Any additional details about this package:</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="additionalInfo"></textarea>
+    </div>
+
+
+    <button class="btn btn-primary mt-3 mx-auto w-100" type="submit">Submit</button>
+  </form>
+
+  <footer>
+    <div class="bottomLogo">
+      <img src="" alt="">
+      <p>Copyright &copy; 2021 Sip & Paint. NG All Rights Reserved</p>
+    </div>
+    <div class="contactInfo">
+      <p>Contact Us</p>
+      <p><img src="" alt=""> Phone: +234 904 000 0081</p>
+      <p><img src="" alt=""> <a href="mailto:sipandpaint.ng@gmail.com">sipandpaint.ng@gmail.com</a> </p>
+      <img src="" alt="">
+      <img src="" alt="">
+    </div>
+  </footer>
+</body>
+
+</html>

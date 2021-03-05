@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('header'); -%>
+
+  <title>TESTING</title>
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Admin</h1>
+
+    <h3>New Package</h3>
+    <form action="/adminPost" method="POST" class="form-control" enctype="multipart/form-data"
+      onclick="return validateFileUpload()">
+
+      <input type="text" name="nameOfPackage" placeholder="name" required maxlength="26">
+      <input type="number" name="priceOfPackage" placeholder="price" required maxlength="6">
+      <input type="text" name="durationOfPackage" placeholder="duration" required maxlength="4">
+      <select name="timeFrame" id="timeFrame2" required>
+        <option value="Minutes">Minutes</option>
+        <option value="Hour(s)">Hour(s)</option>
+      </select>
+      <div class="mb-3">
+        <input class="form-control" type="file" id="formFile" name="image" required>
+      </div>
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+    <h3>Packages</h3>
+    <div class="row">
+      <% for (let i=0; i<packagesList.length; i++){ %>
+      <div class="packageCard col-3">
+        <form action="/deletePackage" method="POST" onclick="return isValidForm()">
+          <img src="upload/image-<%=packagesList[i].image%>" alt="" width="250px">
+          <p class="packagePrice">&#8358; <%=packagesList[i].price%></p>
+          <h3><%=packagesList[i].name%></h3>
+          <p class="duration" name="hello"><%=packagesList[i].duration%> <%=packagesList[i].timeFrame%></p>
+          <input type="text" name="<%=packagesList[i].key%>" value="<%=packagesList[i].key%>" style="display: none;">
+          <button type="submit" class="<%=packagesList[i].key%>">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+
+    <h3>New Upcoming Event</h3>
+    <form action="/adminPostUp" method="POST" class="form-control" enctype="multipart/form-data"
+      onclick="return validateFileUpload()">
+
+      <input type="text" name="nameOfPackage" placeholder="name" required maxlength="26">
+      <input type="number" name="priceOfPackage" placeholder="price" required maxlength="6">
+      <input type="text" name="durationOfPackage" placeholder="duration" required maxlength="4">
+      <select name="timeFrame" id="timeFrame">
+        <option value="Minutes">Minutes</option>
+        <option value="Hour(s)">Hour(s)</option>
+      </select>
+      <!-- <input type="date" name="dateOfPackage" placeholder="duration" required> -->
+      <input type="text" name="dateOfPackage" placeholder="DD/MM/YYYY" />
+      <div class="mb-3">
+
+        <input class="form-control" type="file" id="formFile" name="image" required>
+      </div>
+
+      <button type="submit">Submit</button>
+
+    </form>
+    <h3>Upcoming Events</h3>
+    <div class="row">
+      <% for (let i=0; i<upcomingEventList.length; i++){ %>
+      <div class="packageCard col-3">
+        <form action="/deleteUpcomingEvent" method="POST" onclick="return isValidForm()">
+          <img src="upload/image-<%=upcomingEventList[i].image%>" alt="" width="250px">
+          <p class="packagePrice">&#8358; <%=upcomingEventList[i].price%></p>
+          <h3><%=upcomingEventList[i].name%></h3>
+          <p class="duration" name="hello"><%=upcomingEventList[i].duration%> <%=upcomingEventList[i].timeFrame%></p>
+
+          <p class="date"><%=upcomingEventList[i].date%></p>
+          <input type="text" name="<%=upcomingEventList[i].key%>" value="<%=upcomingEventList[i].key%>"
+            style="display: none;">
+
+          <button type="submit" class="<%=upcomingEventList[i].key%>">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+</body>
+
+</html>
