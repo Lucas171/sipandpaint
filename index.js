@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
+const cloudinary = require("cloudinary").v2;
+const streamifier = require("streamifier");
+
 let port = process.env.PORT;
 
 const transporter = nodemailer.createTransport({
@@ -12,16 +15,21 @@ const transporter = nodemailer.createTransport({
     pass: "Samyu17!",
   },
 });
-const storage = multer.diskStorage({
-  destination: "./public/upload/",
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + file.originalname);
-  },
+
+// const storage = multer.diskStorage({
+//   destination: "./public/upload/",
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + "-" + file.originalname);
+//   },
+// });
+
+cloudinary.config({
+  cloud_name: "dpnmfp54z",
+  api_key: "213349315688533",
+  api_secret: "4y_7V3jVXSDthHROMsvHNZzi9g0",
 });
 
-const upload = multer({
-  storage: storage,
-}).single("image");
+const upload = multer();
 
 const app = express();
 app.set("view engine", "ejs");
@@ -155,139 +163,178 @@ app.get("/adminPost", function (req, res) {
 
 // POSTING TO ADMINPOST  *************************************************
 
-app.post("/adminPost", function (req, res) {
+app.post("/adminPost", upload.single("image"), function (req, res) {
+  let streamUpload = (req) => {
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream((error, result) => {
+        if (result) {
+          resolve(result);
+        } else {
+          reject(error);
+        }
+      });
+
+      streamifier.createReadStream(req.file.buffer).pipe(stream);
+    });
+  };
+  let image;
+
+  async function upload(req) {
+    try {
+      let result = await streamUpload(req);
+      image = result.url;
+      console.log(image);
+      Package.find(function (err, package) {
+        let key;
+        let keys = [];
+        if (err) {
+          console.log(err);
+        } else {
+          if (package == "") {
+            key = Math.floor(Math.random() * 10000000);
+            const package = new Package({
+              name: nameOfPackage,
+              price: priceOfPackage,
+              duration: duration,
+              image: image,
+              key: key,
+              timeFrame: timeFrame,
+            });
+
+            package.save();
+            res.redirect("/");
+          } else {
+            for (var i = 0; i < package.length; i++) {
+              keys.push(package.key);
+            }
+
+            while (keys.includes(key)) {
+              key = Math.floor(Math.random() * 10000000);
+            }
+
+            if (!keys.includes(key)) {
+              const package = new Package({
+                name: nameOfPackage,
+                price: priceOfPackage,
+                duration: duration,
+                image: image,
+                key: key,
+                timeFrame: timeFrame,
+              });
+
+              package.save();
+              res.redirect("/");
+            }
+          }
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  upload(req);
+
   let nameOfPackage = req.body.nameOfPackage;
   let priceOfPackage = req.body.priceOfPackage;
   let duration = req.body.durationOfPackage;
-  let image = req.body.image;
+
   let timeFrame = req.body.timeFrame;
 
-  upload(req, res, (err) => {
-    if (err) {
-    } else {
-      nameOfPackage = req.body.nameOfPackage;
-      priceOfPackage = req.body.priceOfPackage;
-      duration = req.body.durationOfPackage;
-      image = req.file.originalname;
-      timeFrame = req.body.timeFrame;
-    }
-  });
-
-  Package.find(function (err, package) {
-    let key;
-    let keys = [];
-    if (err) {
-      console.log(err);
-    } else {
-      if (package == "") {
-        key = Math.floor(Math.random() * 10000000);
-        const package = new Package({
-          name: nameOfPackage,
-          price: priceOfPackage,
-          duration: duration,
-          image: image,
-          key: key,
-          timeFrame: timeFrame,
-        });
-
-        package.save();
-        res.redirect("/");
-      } else {
-        for (var i = 0; i < package.length; i++) {
-          keys.push(package.key);
-        }
-
-        while (keys.includes(key)) {
-          key = Math.floor(Math.random() * 10000000);
-        }
-
-        if (!keys.includes(key)) {
-          const package = new Package({
-            name: nameOfPackage,
-            price: priceOfPackage,
-            duration: duration,
-            image: image,
-            key: key,
-            timeFrame: timeFrame,
-          });
-
-          package.save();
-          res.redirect("/");
-        }
-      }
-    }
-  });
+  // upload(req, res, (err) => {
+  //   if (err) {
+  //   } else {
+  //     nameOfPackage = req.body.nameOfPackage;
+  //     priceOfPackage = req.body.priceOfPackage;
+  //     duration = req.body.durationOfPackage;
+  //     image = image;
+  //     timeFrame = req.body.timeFrame;
+  //   }
+  // });
 });
 
 // POSTING TO ADMINPOSTUP  *************************************************
 // DESCRIPTION: Adds a new upcoming package *************************************************
 
-app.post("/adminPostUp", function (req, res) {
+app.post("/adminPostUp", upload.single("image"), function (req, res) {
+  let streamUpload = (req) => {
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream((error, result) => {
+        if (result) {
+          resolve(result);
+        } else {
+          reject(error);
+        }
+      });
+
+      streamifier.createReadStream(req.file.buffer).pipe(stream);
+    });
+  };
+  let image;
+
+  async function upload(req) {
+    try {
+      let result = await streamUpload(req);
+      image = result.url;
+      console.log(image);
+      UpcomingEvent.find(function (err, package) {
+        let key;
+        let keys = [];
+        if (err) {
+          console.log(err);
+        } else {
+          if (package == "") {
+            key = Math.floor(Math.random() * 10000000);
+            const package = new UpcomingEvent({
+              name: nameOfPackage,
+              price: priceOfPackage,
+              duration: duration,
+              image: image,
+              date: date,
+              key: key,
+              timeFrame: timeFrame,
+            });
+
+            package.save();
+            res.redirect("/");
+          } else {
+            for (var i = 0; i < package.length; i++) {
+              keys.push(package.key);
+            }
+
+            while (keys.includes(key)) {
+              key = Math.floor(Math.random() * 10000000);
+            }
+
+            if (!keys.includes(key)) {
+              const package = new UpcomingEvent({
+                name: nameOfPackage,
+                price: priceOfPackage,
+                duration: duration,
+                image: image,
+                date: date,
+                key: key,
+                timeFrame: timeFrame,
+              });
+
+              package.save();
+              res.redirect("/");
+            }
+          }
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  upload(req);
+
   let nameOfPackage = req.body.nameOfPackage;
   let priceOfPackage = req.body.priceOfPackage;
   let duration = req.body.durationOfPackage;
   let date = req.body.dateOfPackage;
-  let image = req.body.image;
   let timeFrame = req.body.timeFrame;
-
-  upload(req, res, (err) => {
-    if (err) {
-    } else {
-      nameOfPackage = req.body.nameOfPackage;
-      priceOfPackage = req.body.priceOfPackage;
-      duration = req.body.durationOfPackage;
-      image = req.file.originalname;
-      date = req.body.dateOfPackage;
-      timeFrame = req.body.timeFrame;
-    }
-  });
-
-  UpcomingEvent.find(function (err, package) {
-    let key;
-    let keys = [];
-    if (err) {
-      console.log(err);
-    } else {
-      if (package == "") {
-        key = Math.floor(Math.random() * 10000000);
-        const upcomingEvent = new UpcomingEvent({
-          name: nameOfPackage,
-          price: priceOfPackage,
-          duration: duration,
-          image: image,
-          date: date,
-          key: key,
-          timeFrame: timeFrame,
-        });
-
-        upcomingEvent.save();
-        res.redirect("/");
-      } else {
-        for (var i = 0; i < package.length; i++) {
-          keys.push(package.key);
-        }
-
-        while (keys.includes(key)) {
-          key = Math.floor(Math.random() * 10000000);
-        }
-
-        if (!keys.includes(key)) {
-          const upcomingEvent = new UpcomingEvent({
-            name: nameOfPackage,
-            price: priceOfPackage,
-            duration: duration,
-            image: image,
-            date: date,
-            key: key,
-            timeFrame: timeFrame,
-          });
-
-          upcomingEvent.save();
-          res.redirect("/");
-        }
-      }
-    }
-  });
 });
 
 //POST TO DELETEPACKAGE *************************************************

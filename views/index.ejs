@@ -66,7 +66,7 @@
         package just for you!</p>
       <% for (let i=0; i<packagesList.length; i++){ %>
       <div class="packageCard col-3">
-        <img src="upload/image-<%=packagesList[i].image%>" alt="" width="250px" height="150px">
+        <img src="<%=packagesList[i].image%>" alt="" width="250px" height="150px">
         <p class="packagePrice">&#8358; <%=packagesList[i].price%></p>
         <h3><%=packagesList[i].name%></h3>
         <p class="duration"><%=packagesList[i].duration%> <%=packagesList[i].timeFrame%></p>
@@ -86,7 +86,7 @@
     <div class="row">
       <% for (let i=0; i<upcomingEventList.length; i++){ %>
       <div class="packageCard col-3">
-        <img src="upload/image-<%=upcomingEventList[i].image%>" alt="" width="250px" height="150px">
+        <img src="<%=upcomingEventList[i].image%>" alt="" width="250px" height="150px">
         <p class="packagePrice">&#8358; <%=upcomingEventList[i].price%></p>
         <h3><%=upcomingEventList[i].name%></h3>
         <p class="date"><%=upcomingEventList[i].date%></p>
