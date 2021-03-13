@@ -16,13 +16,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// const storage = multer.diskStorage({
-//   destination: "./public/upload/",
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + "-" + file.originalname);
-//   },
-// });
-
 cloudinary.config({
   cloud_name: "dpnmfp54z",
   api_key: "213349315688533",
