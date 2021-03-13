@@ -8,7 +8,7 @@
 
 Sip and paint is a company based out of nigeria. Their mission is to bring friends and family together by expressing themselves through art, while having some fun. :wink: :beer:
 
-[Click here]("https://sipandpaint.herokuapp.com/") to take a look at the site!
+[Click here](https://sipandpaint.herokuapp.com/) to take a look at the site!
 
 ---
 
