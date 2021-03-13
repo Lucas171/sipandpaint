@@ -14,12 +14,6 @@ Sip and paint is a company based out of nigeria. Their mission is to bring frien
 
 ## Technology used:
 
-| Mark Up                                       | Styling                                     | Backend                                      | Database                                      |
-| --------------------------------------------- | ------------------------------------------- | -------------------------------------------- | --------------------------------------------- |
-| ![image](public/images/forReadme/html-55.png) | ![image](public/images/forReadme/css-3.png) | ![image](public/images/forReadme/nodejs.png) | ![image](public/images/forReadme/mongodb.png) |
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![image](public/images/forReadme/bootstrap.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;![image](public/images/forReadme/cloudify1.png)
-
 |                    Mark Up                    |                     Styling                     |                   Backend                    |                    Database                     |
 | :-------------------------------------------: | :---------------------------------------------: | :------------------------------------------: | :---------------------------------------------: |
 | ![image](public/images/forReadme/html-55.png) |   ![image](public/images/forReadme/css-3.png)   | ![image](public/images/forReadme/nodejs.png) |  ![image](public/images/forReadme/mongodb.png)  |
